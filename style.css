@@ -2,13 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Open-sans', sans-serif;
 }
 
 body {
   margin: auto;
-  width: 80%;
-  height: 90%;
 }
 
 .overlay {
@@ -21,6 +19,15 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 20px;
+}
+
+.overlay-header {
+  stroke: #000;
+  stroke-width: 1;
+}
+
+.slogan {
+  font-family: 'Agdasima', sans-serif;
 }
 
 .timer {

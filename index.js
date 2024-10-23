@@ -7,6 +7,15 @@ let secHand = document.getElementById('sec');
 
 let intervalId;
 
+const pathElems = document.querySelectorAll('svg path');
+
+anime({
+  targets: pathElems,
+  strokeDashoffset: [anime.setDashoffset, 0],
+  easing: 'easeInOutSine',
+  duration: 3000,
+});
+
 function displayTime(hours, minutes, seconds) {
   let hourRotation = (hours % 12) * 30 + minutes / 2;
   let minRotation = minutes * 6;
