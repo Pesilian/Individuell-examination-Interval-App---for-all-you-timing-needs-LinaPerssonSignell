@@ -9,7 +9,9 @@ body {
   margin: auto;
 }
 
-.overlay {
+/* Overlay */
+
+.loadingscreen-overlay {
   background-color: grey;
   height: 100%;
   width: 100%;
@@ -19,35 +21,40 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  cursor: pointer;
+  animation: fadeOutAnimation ease-in-out 2s 0.2s 1 forwards;
+  /* display: none; */
 }
 
-.overlay-header {
+.loadingscreen-header {
   stroke: #000;
   stroke-width: 1;
 }
 
-.slogan {
+.loadingscreen-slogan {
   font-family: 'Agdasima', sans-serif;
+  text-shadow: 0 0 2px #fff;
 }
 
-.timer {
-  margin-top: 30px;
-}
-
-.hidden {
-  display: none;
-}
+/* Header */
 
 .header {
   display: flex;
   justify-content: space-between;
 }
 
+.logo {
+  margin: 20px;
+}
+
 .menu {
-  margin-top: 10px;
+  margin-top: 30px;
+  margin-right: 20px;
 }
 
 .menu button {
+  text-transform: uppercase;
+  margin-right: 10px;
   border: none;
   background-color: #fff;
   font-weight: bolder;
@@ -62,9 +69,14 @@ main {
   gap: 50px;
 }
 
-/* Clock */
+/* Set time */
 
-.clock-container {
+/* Digital watch */
+
+/* analog clock */
+
+.clock-overlay {
+  display: none;
   position: relative;
 }
 

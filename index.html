@@ -13,8 +13,8 @@
     <title>ChronoHub</title>
   </head>
   <body>
-    <div class="overlay">
-      <h1 class="header">
+    <div class="loadingscreen-overlay">
+      <h1 class="loadingscreen-header">
         <svg
           width="297"
           height="37"
@@ -61,7 +61,7 @@
           />
         </svg>
       </h1>
-      <h2 class="slogan">Timing Made Easy</h2>
+      <h2 class="loadingscreen-slogan">Timing Made Easy</h2>
     </div>
 
     <header class="header">
@@ -120,8 +120,8 @@
     </header>
 
     <main>
-      <!-- Analog -->
-      <div class="clock-container hidden">
+      <!-- Analog clock -->
+      <div class="clock-overlay">
         <div class="clock">
           <div class="hand" id="hour"><i></i></div>
           <div class="hand" id="min"><i></i></div>
@@ -142,17 +142,21 @@
         </div>
       </div>
 
+      <!-- Digital clock -->
+      <div class="digital-overlay" id="digital">
+        <span class="values">00:00:00</span>
+      </div>
+
       <!-- Time set -->
-      <div class="timer" id="timer">
+      <div class="timer-overlay" id="timer">
         <input type="number" id="inputTimeHours" placeholder="timmar" />
         <input type="number" id="inputTimeMinutes" placeholder="minuter" />
         <input type="number" id="inputTimeSeconds" placeholder="sekunder" />
         <button id="setTimeButton">Sätt tid</button>
+      </div>
 
-        <!-- Digital clock -->
-        <span class="values">00:00:00</span>
-
-        <!-- Buttons -->
+      <!-- Buttons -->
+      <div class="buttons" id="buttons">
         <button class="startButton">Starta</button>
         <button class="pauseButton">Pausa</button>
         <button class="resetButton">Återställ</button>
@@ -167,6 +171,8 @@
     ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.4.0/dist/easytimer.min.js"></script>
+    <script src="loadingscreen.js"></script>
+    <script src="timer.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
