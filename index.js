@@ -1,8 +1,6 @@
 $(document).ready(function () {
-  $(
-    '#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay, #menuOverlay'
-  ).hide();
-  $('#timerOverlay').show();
+  $('#analogClock, #digitalClock, #alarmOverlay, #menuOverlay').hide();
+  $('#timerOverlay,  #buttonsOverlay').show();
   $('#loadingscreenOverlay').show();
 
   $('.loadingscreen-overlay').click(function () {
@@ -17,8 +15,8 @@ $(document).ready(function () {
   });
 
   $('#homeButton').click(function () {
-    $('#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay').hide();
-    $('#timerOverlay').show();
+    $('#analogClock,  #alarmOverlay, #menuOverlay').hide();
+    $('#timerOverlay, #digitalClock, #buttonsOverlay').show();
   });
 
   $('#analogButton').click(function () {
@@ -28,16 +26,6 @@ $(document).ready(function () {
 
   $('#digitalButton').click(function () {
     $('#analogClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
-    $('#digitalClock, #buttonsOverlay').show();
-  });
-
-  $('#setTimeButton').click(function () {
-    $('#analogClock, #alarmOverlay, #menuOverlay').hide();
-    $('#digitalClock, #timerOverlay, #buttonsOverlay').show();
-  });
-
-  $('#startbutton').click(function () {
-    $('#analogClock, #alarmOverlay,  #timerOverlay, ').hide();
     $('#digitalClock, #buttonsOverlay').show();
   });
 });

@@ -6,15 +6,7 @@
 }
 
 body {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-width: 100%;
-  max-height: 100%;
   overflow-x: hidden;
-  size: 100%;
 }
 
 main {
@@ -22,6 +14,7 @@ main {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .clock-overlay,
@@ -66,7 +59,6 @@ main {
 
 .header {
   display: flex;
-  justify-content: space-between;
 }
 
 .logo {
@@ -78,7 +70,7 @@ main {
 }
 
 .menu-logo div {
-  height: 8px;
+  height: 5px;
   width: 40px;
   background-color: #000;
   margin-top: 3px;
@@ -106,46 +98,35 @@ main {
   font-weight: bolder;
 }
 
-/* Set time */
-.timer-overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 75vh;
-  gap: 20px;
-  max-width: 100%;
-}
-
-.timer-overlay input {
-  height: 50px;
-  width: 75px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.timer-overlay button {
-  font-family: 'Agdasima', sans-serif;
-  font-weight: 600;
-  height: 30px;
-  width: 80px;
-  text-transform: uppercase;
-  align-self: center;
-  background-color: aqua;
-  border: none;
-  border-radius: 10px;
-}
-
-/* Buttons */
-/* 
-.buttons-overlay {
-  margin-top: 75%;
-} */
-
 /* Digital watch */
 
 .digital-overlay {
-  margin-top: 50%;
   font-size: 50px;
+  margin-top: 20px;
+}
+
+/* Set time */
+.timer-overlay {
+  margin-top: 35%;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+}
+
+.increaseTimeButton,
+.decreaseTimeButton {
+  width: 50px;
+  height: auto;
+  align-self: center;
+}
+
+/* Buttons */
+.startPauseButton {
+  width: 100px;
 }
 
 /* analog clock */
@@ -156,8 +137,8 @@ main {
 }
 
 .clock {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -194,41 +175,13 @@ main {
 }
 
 .hand i {
-  width: 4px;
-  height: 100px;
   position: absolute;
   border-radius: 50%;
   box-shadow: 0 0 7px #000000;
-}
-
-.hand i {
-  width: 4px;
-  height: 100px;
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: 0 0 7px #000000;
-}
-
-.hand i {
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: 0 0 7px #000000;
-}
-
-#hour i {
-  height: 95px;
-  width: 4 px;
-  background-color: red;
-}
-
-#min i {
-  height: 113px;
-  width: 4px;
-  background-color: red;
 }
 
 #sec i {
-  height: 118px;
+  height: 75px;
   width: 2px;
   background-color: #000;
   box-shadow: none;
