@@ -7,6 +7,16 @@
 
 body {
   margin: auto;
+  width: 600px;
+}
+
+.clock-overlay,
+.digital-overlay,
+.buttons-overlay,
+.alarm-overlay,
+.timer-overlay,
+.loadingscreen-overlay {
+  display: none;
 }
 
 /* Overlay */
@@ -16,14 +26,15 @@ body {
   height: 100%;
   width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
   cursor: pointer;
-  animation: fadeOutAnimation ease-in-out 2s 0.2s 1 forwards;
-  display: none;
+  z-index: 1000;
 }
 
 .loadingscreen-header {
@@ -68,14 +79,6 @@ main {
   min-height: 100vh;
 }
 
-.clock-overlay,
-.digital-overlay,
-.buttons-overlay,
-.alarm-overlay,
-.timer-overlay {
-  display: none;
-}
-
 /* Set time */
 .timer-overlay {
   display: flex;
@@ -85,7 +88,7 @@ main {
 }
 
 .timer-overlay input {
-  height: 75px;
+  height: 50px;
   width: 75px;
   text-align: center;
   border-radius: 10px;

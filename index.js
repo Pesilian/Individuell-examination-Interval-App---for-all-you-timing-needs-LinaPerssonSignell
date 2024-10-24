@@ -1,6 +1,11 @@
 $(document).ready(function () {
-  $('#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay').hide(); // Döljer alla overlays
-  $('#timerOverlay').show(); // Visar timer-overlay som standard
+  $('#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay').hide();
+  $('#timerOverlay').show();
+  $('#loadingscreenOverlay').show();
+
+  $('.loadingscreen-overlay').click(function () {
+    $('#loadingscreenOverlay').hide();
+  });
 
   // När "set time" knappen trycks
   $('.menu button:contains("set time")').click(function () {

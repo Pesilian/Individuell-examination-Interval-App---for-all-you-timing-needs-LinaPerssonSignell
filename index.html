@@ -13,7 +13,7 @@
     <title>ChronoHub</title>
   </head>
   <body>
-    <div class="loadingscreen-overlay">
+    <div class="loadingscreen-overlay" id="loadingscreenOverlay">
       <h1 class="loadingscreen-header">
         <svg
           width="297"
@@ -111,10 +111,15 @@
           />
         </svg>
       </h1>
-      <menu class="menu">
-        <button class="setTimeButton">set time</button>
-        <button>Analoge</button>
-        <button>Digital</button>
+      <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <menu class="menu" id="menu  ">
+        <button class="setTimeButton">Start</button>
+        <button>Analog clock</button>
+        <button>Digital clock</button>
       </menu>
     </header>
 
@@ -152,21 +157,21 @@
           type="number"
           class="hour-input"
           id="inputTimeHours"
-          placeholder="timmar"
+          placeholder="Hours"
         />
         <input
           type="number"
           class="min-input"
           id="inputTimeMinutes"
-          placeholder="minuter"
+          placeholder="Minutes"
         />
         <input
           type="number"
           class="sec-input"
           id="inputTimeSeconds"
-          placeholder="sekunder"
+          placeholder="Seconds"
         />
-        <button class="setTimeButton" id="setTimeButton">Sätt tid</button>
+        <button class="setTimeButton" id="setTimeButton">Set Timer</button>
       </div>
 
       <!-- Alarm -->
@@ -174,10 +179,12 @@
 
       <!-- Buttons -->
       <div class="buttons-overlay" id="buttonsOverlay">
-        <button class="startButton" id="startButton">Starta</button>
-        <button class="pauseButton" id="pauseButton">Pausa</button>
-        <button class="resetButton" id="resetButton">Återställ</button>
-        <button class="newTimerButton" id="newTimerButton">Ställ ny tid</button>
+        <button class="startButton" id="startButton">Start</button>
+        <button class="pauseButton" id="pauseButton">Pause</button>
+        <button class="resetButton" id="resetButton">Reset</button>
+        <button class="newTimerButton" id="newTimerButton">
+          Set new timer
+        </button>
       </div>
     </main>
     <script
