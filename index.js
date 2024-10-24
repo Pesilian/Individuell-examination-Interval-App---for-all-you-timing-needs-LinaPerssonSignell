@@ -1,5 +1,7 @@
 $(document).ready(function () {
-  $('#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay').hide();
+  $(
+    '#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay, #menuOverlay'
+  ).hide();
   $('#timerOverlay').show();
   $('#loadingscreenOverlay').show();
 
@@ -7,33 +9,35 @@ $(document).ready(function () {
     $('#loadingscreenOverlay').hide();
   });
 
-  // När "set time" knappen trycks
-  $('.menu button:contains("set time")').click(function () {
-    $('#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay').hide(); // Döljer andra overlays
-    $('#timerOverlay').show(); // Visar timer-overlay
+  $('#menuLogo').click(function () {
+    $(
+      '#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay, #timerOverlay'
+    ).hide();
+    $('#menuOverlay').show();
   });
 
-  // När "Analoge" knappen trycks
-  $('.menu button:contains("Analoge")').click(function () {
-    $('#digitalClock, #timerOverlay, #alarmOverlay').hide(); // Döljer andra overlays
-    $('#analogClock, #buttonsOverlay').show(); // Visar analog klocka
+  $('#menuOverlay button:contains("set time")').click(function () {
+    $('#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay').hide();
+    $('#timerOverlay').show();
   });
 
-  // När "Digital" knappen trycks
-  $('.menu button:contains("Digital")').click(function () {
-    $('#analogClock, #timerOverlay, #alarmOverlay').hide(); // Döljer andra overlays
-    $('#digitalClock, #buttonsOverlay').show(); // Visar digital klocka
+  $('#menuOverlay button:contains("Analog")').click(function () {
+    $('#digitalClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
+    $('#analogClock, #buttonsOverlay').show();
   });
 
-  // Korrigerat till att referera till rätt selektor
+  $('#menuOverlay button:contains("Digital")').click(function () {
+    $('#analogClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
+    $('#digitalClock, #buttonsOverlay').show();
+  });
+
   $('#setTimeButton').click(function () {
-    $('#analogClock, #alarmOverlay').hide(); // Döljer andra overlays
-    $('#digitalClock, #timerOverlay, #buttonsOverlay').show(); // Visar digital klocka
+    $('#analogClock, #alarmOverlay, #menuOverlay').hide();
+    $('#digitalClock, #timerOverlay, #buttonsOverlay').show();
   });
 
-  // Korrigerat till att referera till rätt selektor
   $('#startbutton').click(function () {
-    $('#analogClock, #alarmOverlay,  #timerOverlay, ').hide(); // Döljer andra overlays
-    $('#digitalClock, #buttonsOverlay').show(); // Visar digital klocka
+    $('#analogClock, #alarmOverlay,  #timerOverlay, ').hide();
+    $('#digitalClock, #buttonsOverlay').show();
   });
 });
