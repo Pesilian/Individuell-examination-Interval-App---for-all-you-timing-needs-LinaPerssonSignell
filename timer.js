@@ -30,18 +30,23 @@ function setTimer(hours, minutes, seconds) {
     ).padStart(2, '0')}:${String(formattedSeconds).padStart(2, '0')}`
   );
 
-  displayTime(0, 0, 0);
+  displayTime(formattedHours, formattedMinutes, formattedSeconds);
 }
 
+// Sammanfogad setTimeButton-funktion
 $('.setTimeButton').click(function () {
+  timer.stop(); // Stoppar befintlig timer
+  countdownValue = 0;
+  displayTime(0, 0, 0); // Återställer klockvisningen till 0
+
   var hours = parseInt($('#inputTimeHours').val(), 10) || 0;
   var minutes = parseInt($('#inputTimeMinutes').val(), 10) || 0;
   var seconds = parseInt($('#inputTimeSeconds').val(), 10) || 0;
 
   if (hours >= 0 || minutes >= 0 || seconds >= 0) {
-    setTimer(hours, minutes, seconds);
+    setTimer(hours, minutes, seconds); // Sätter den nya tiden
   } else {
-    alert('Vänligen ange giltiga tider.');
+    alert('Vänligen ange giltiga tider.'); // Felhantering om ogiltiga värden anges
   }
 });
 
@@ -75,18 +80,6 @@ $('.pauseButton').click(function () {
 });
 
 $('.resetButton').click(function () {
-  timer.stop();
-  countdownValue = 0;
-  displayTime(0, 0, 0);
-
-  var hours = parseInt($('#inputTimeHours').val(), 10) || 0;
-  var minutes = parseInt($('#inputTimeMinutes').val(), 10) || 0;
-  var seconds = parseInt($('#inputTimeSeconds').val(), 10) || 0;
-
-  setTimer(hours, minutes, seconds);
-});
-
-$('.setTimeButton').click(function () {
   timer.stop();
   countdownValue = 0;
   displayTime(0, 0, 0);

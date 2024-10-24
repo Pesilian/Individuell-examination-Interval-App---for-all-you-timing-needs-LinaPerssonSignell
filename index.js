@@ -16,17 +16,17 @@ $(document).ready(function () {
     $('#menuOverlay').show();
   });
 
-  $('#menuOverlay button:contains("set time")').click(function () {
+  $('#homeButton').click(function () {
     $('#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay').hide();
     $('#timerOverlay').show();
   });
 
-  $('#menuOverlay button:contains("Analog")').click(function () {
+  $('#analogButton').click(function () {
     $('#digitalClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
     $('#analogClock, #buttonsOverlay').show();
   });
 
-  $('#menuOverlay button:contains("Digital")').click(function () {
+  $('#digitalButton').click(function () {
     $('#analogClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
     $('#digitalClock, #buttonsOverlay').show();
   });

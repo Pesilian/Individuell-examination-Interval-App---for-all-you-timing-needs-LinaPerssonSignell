@@ -6,8 +6,22 @@
 }
 
 body {
-  margin: auto;
-  width: 600px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+  size: 100%;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .clock-overlay,
@@ -56,38 +70,50 @@ body {
 }
 
 .logo {
+  width: 200px;
+}
+
+.menu-logo {
   margin: 20px;
 }
 
+.menu-logo div {
+  height: 8px;
+  width: 40px;
+  background-color: #000;
+  margin-top: 3px;
+  border-radius: 5px;
+  box-shadow: 0 0 1px #000;
+}
+
+/* Menu overlay */
+
 .menu-overlay {
-  margin-top: 30px;
-  margin-right: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  min-height: 75vh;
 }
 
 .menu-overlay button {
+  font-family: 'Agdasima', sans-serif;
   text-transform: uppercase;
-  margin-right: 10px;
+  font-size: 40px;
   border: none;
   background-color: #fff;
   font-weight: bolder;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-
 /* Set time */
 .timer-overlay {
   display: flex;
-
-  margin-bottom: 100px;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
   gap: 20px;
+  max-width: 100%;
 }
 
 .timer-overlay input {
@@ -109,12 +135,24 @@ main {
   border-radius: 10px;
 }
 
+/* Buttons */
+/* 
+.buttons-overlay {
+  margin-top: 75%;
+} */
+
 /* Digital watch */
+
+.digital-overlay {
+  margin-top: 50%;
+  font-size: 50px;
+}
 
 /* analog clock */
 
 .clock-overlay {
   position: relative;
+  margin-top: 50%;
 }
 
 .clock {
