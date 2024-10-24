@@ -112,16 +112,15 @@
         </svg>
       </h1>
       <menu class="menu">
-        <button>set time</button>
+        <button class="setTimeButton">set time</button>
         <button>Analoge</button>
         <button>Digital</button>
-        <button>Alarm</button>
       </menu>
     </header>
 
     <main>
       <!-- Analog clock -->
-      <div class="clock-overlay">
+      <div class="clock-overlay" id="analogClock">
         <div class="clock">
           <div class="hand" id="hour"><i></i></div>
           <div class="hand" id="min"><i></i></div>
@@ -143,24 +142,42 @@
       </div>
 
       <!-- Digital clock -->
-      <div class="digital-overlay" id="digital">
+      <div class="digital-overlay" id="digitalClock">
         <span class="values">00:00:00</span>
       </div>
 
       <!-- Time set -->
-      <div class="timer-overlay" id="timer">
-        <input type="number" id="inputTimeHours" placeholder="timmar" />
-        <input type="number" id="inputTimeMinutes" placeholder="minuter" />
-        <input type="number" id="inputTimeSeconds" placeholder="sekunder" />
-        <button id="setTimeButton">Sätt tid</button>
+      <div class="timer-overlay" id="timerOverlay">
+        <input
+          type="number"
+          class="hour-input"
+          id="inputTimeHours"
+          placeholder="timmar"
+        />
+        <input
+          type="number"
+          class="min-input"
+          id="inputTimeMinutes"
+          placeholder="minuter"
+        />
+        <input
+          type="number"
+          class="sec-input"
+          id="inputTimeSeconds"
+          placeholder="sekunder"
+        />
+        <button class="setTimeButton" id="setTimeButton">Sätt tid</button>
       </div>
 
+      <!-- Alarm -->
+      <div class="alarmOverlay" id="alarmOverlay"></div>
+
       <!-- Buttons -->
-      <div class="buttons" id="buttons">
-        <button class="startButton">Starta</button>
-        <button class="pauseButton">Pausa</button>
-        <button class="resetButton">Återställ</button>
-        <button class="newTimerButton">Ställ ny tid</button>
+      <div class="buttons-overlay" id="buttonsOverlay">
+        <button class="startButton" id="startButton">Starta</button>
+        <button class="pauseButton" id="pauseButton">Pausa</button>
+        <button class="resetButton" id="resetButton">Återställ</button>
+        <button class="newTimerButton" id="newTimerButton">Ställ ny tid</button>
       </div>
     </main>
     <script

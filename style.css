@@ -23,7 +23,7 @@ body {
   gap: 20px;
   cursor: pointer;
   animation: fadeOutAnimation ease-in-out 2s 0.2s 1 forwards;
-  /* display: none; */
+  display: none;
 }
 
 .loadingscreen-header {
@@ -62,21 +62,52 @@ body {
 
 main {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  gap: 50px;
+}
+
+.clock-overlay,
+.digital-overlay,
+.buttons-overlay,
+.alarm-overlay,
+.timer-overlay {
+  display: none;
 }
 
 /* Set time */
+.timer-overlay {
+  display: flex;
+
+  margin-bottom: 100px;
+  gap: 20px;
+}
+
+.timer-overlay input {
+  height: 75px;
+  width: 75px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.timer-overlay button {
+  font-family: 'Agdasima', sans-serif;
+  font-weight: 600;
+  height: 30px;
+  width: 80px;
+  text-transform: uppercase;
+  align-self: center;
+  background-color: aqua;
+  border: none;
+  border-radius: 10px;
+}
 
 /* Digital watch */
 
 /* analog clock */
 
 .clock-overlay {
-  display: none;
   position: relative;
 }
 
@@ -157,4 +188,11 @@ main {
   width: 2px;
   background-color: #000;
   box-shadow: none;
+}
+
+/* alarm */
+
+.alarm-overlay {
+  font-family: 'Agdasima', sans-serif;
+  font-size: 30px;
 }

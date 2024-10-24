@@ -24,7 +24,7 @@ function setTimer(hours, minutes, seconds) {
   var formattedMinutes = Math.floor((countdownValue % 3600) / 60);
   var formattedSeconds = countdownValue % 60;
 
-  $('#digital .values').html(
+  $('.values').html(
     `${String(formattedHours).padStart(2, '0')}:${String(
       formattedMinutes
     ).padStart(2, '0')}:${String(formattedSeconds).padStart(2, '0')}`
@@ -33,7 +33,7 @@ function setTimer(hours, minutes, seconds) {
   displayTime(0, 0, 0);
 }
 
-$('#setTimeButton').click(function () {
+$('.setTimeButton').click(function () {
   var hours = parseInt($('#inputTimeHours').val(), 10) || 0;
   var minutes = parseInt($('#inputTimeMinutes').val(), 10) || 0;
   var seconds = parseInt($('#inputTimeSeconds').val(), 10) || 0;
@@ -45,7 +45,7 @@ $('#setTimeButton').click(function () {
   }
 });
 
-$('#buttons .startButton').click(function () {
+$('.startButton').click(function () {
   if (!timer.isRunning() && countdownValue > 0) {
     timer.start({ countdown: true, startValues: { seconds: countdownValue } });
 
@@ -86,6 +86,18 @@ $('.resetButton').click(function () {
   setTimer(hours, minutes, seconds);
 });
 
+$('.setTimeButton').click(function () {
+  timer.stop();
+  countdownValue = 0;
+  displayTime(0, 0, 0);
+
+  var hours = parseInt($('#inputTimeHours').val(), 10) || 0;
+  var minutes = parseInt($('#inputTimeMinutes').val(), 10) || 0;
+  var seconds = parseInt($('#inputTimeSeconds').val(), 10) || 0;
+
+  setTimer(hours, minutes, seconds);
+});
+
 $('.newTimerButton').click(function () {
   $('#inputTimeHours').val('');
   $('#inputTimeMinutes').val('');
@@ -98,18 +110,25 @@ $('.newTimerButton').click(function () {
 
 timer.addEventListener('secondsUpdated', function () {
   const elapsedTime = timer.getTimeValues();
-  $('#digital .values').html(elapsedTime.toString());
+  $('.values').html(elapsedTime.toString());
 });
 
 timer.addEventListener('started', function () {
   const elapsedTime = timer.getTimeValues();
-  $('#digital .values').html(elapsedTime.toString());
+  $('.values').html(elapsedTime.toString());
 });
 
 timer.addEventListener('reset', function () {
-  $('#digital .values').html('00:00:00');
+  $('.values').html('00:00:00');
 });
 
 timer.addEventListener('targetAchieved', function () {
-  $('#digital .values').html('KABOOM!!');
+  $('.alarmOverlay').html('Times up!');
+  $('#analogClock, #digitalClock, #buttonsOverlay, #timerOverlay').hide();
+  $('#alarmOverlay').show();
+
+  setTimeout(function () {
+    $('#alarmOverlay').hide();
+    $('#timerOverlay').show();
+  }, 5000);
 });
