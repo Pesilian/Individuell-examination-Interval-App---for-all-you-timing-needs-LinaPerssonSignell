@@ -88,33 +88,13 @@ $(document).ready(function () {
 
   timer.addEventListener('targetAchieved', function () {
     $('#analogClock, #timerOverlay, #digitalClock, #buttonsOverlay').hide();
-    $('#alarmOverlay').show();
+    $('#alarmOverlay, #setTime').show();
 
-    setTimeout(function () {
-      $('#alarmOverlay').hide();
-      $('#timerOverlay,  #buttonsOverlay').show();
-    }, 3000);
-
-    // Rensa den analoga klockan och återställ knappen
-    clearInterval(analogClockIntervalId); // Rensa intervallet
-    analogClockIntervalId = null; // Nollställ intervallet
-    $('#startPauseButton').attr('src', 'assets/play.svg'); // Se till att knappen är resetad
-    timerRunning = false; // Ställ in timerRunning till false
+    clearInterval(analogClockIntervalId);
+    analogClockIntervalId = null;
+    $('#startPauseButton').attr('src', 'assets/play.svg');
+    timerRunning = false;
   });
 
-  // Klickhändelse för knappen för att ställa in ny tid
-  $('#alarmOverlay .setTime').click(function () {
-    resetTimer(); // Återställ timern
-    let newTime = prompt('Enter new time in seconds:');
-    if (newTime !== null) {
-      countdownValue = parseInt(newTime, 10) || 0;
-      displayTimeInDisplay(countdownValue);
-    }
-
-    $('#alarmOverlay').hide();
-    $('#timerOverlay,  #buttonsOverlay').show();
-  });
-
-  // Uppdatera tiden direkt vid sidladdning
   displayTimeInDisplay(countdownValue);
 });

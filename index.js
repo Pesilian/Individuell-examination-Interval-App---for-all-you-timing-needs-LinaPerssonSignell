@@ -1,5 +1,7 @@
 $(document).ready(function () {
-  $('#analogClock, #digitalClock, #alarmOverlay, #menuOverlay').hide();
+  $(
+    '#analogClock, #digitalClock, #alarmOverlay, #menuOverlay, #setTime'
+  ).hide();
   $('#timerOverlay,  #buttonsOverlay').show();
   $('#loadingscreenOverlay').show();
 
@@ -15,8 +17,8 @@ $(document).ready(function () {
   });
 
   $('#homeButton').click(function () {
-    $('#analogClock,  #alarmOverlay, #menuOverlay').hide();
-    $('#timerOverlay, #digitalClock, #buttonsOverlay').show();
+    $('#analogClock,  #alarmOverlay, #digitalClock, #menuOverlay').hide();
+    $('#timerOverlay, #buttonsOverlay').show();
   });
 
   $('#analogButton').click(function () {
@@ -27,5 +29,12 @@ $(document).ready(function () {
   $('#digitalButton').click(function () {
     $('#analogClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
     $('#digitalClock, #buttonsOverlay').show();
+  });
+
+  $('#setTime').click(function () {
+    $(
+      '#alarmOverlay, #setTime, #analogClock, #timerOverlay, #digitalOverlay, #menuOverlay'
+    ).hide();
+    $('#timerOverlay,  #buttonsOverlay').show();
   });
 });
