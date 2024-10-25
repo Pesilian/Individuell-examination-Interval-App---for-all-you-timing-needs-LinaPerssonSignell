@@ -59,6 +59,7 @@ $(document).ready(function () {
       alert('Vänligen välj en tid innan du startar timern.');
       return;
     }
+    console.log();
 
     if (!timerRunning) {
       $(this).attr('src', 'assets/pause.svg');
