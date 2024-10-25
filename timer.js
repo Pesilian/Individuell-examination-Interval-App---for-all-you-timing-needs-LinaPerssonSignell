@@ -8,12 +8,24 @@ let analogClockSeconds = 0;
 function displayTimeInDisplay(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
+
+  // Uppdatera timeDisplay
   $('#timeDisplay').html(
     `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
   );
+  const timeDisplay = $('#timeDisplay');
+  timeDisplay.removeClass('fade-in'); // Ta bort klassen för att återställa animation
+  void timeDisplay[0].offsetWidth; // Tvinga reflow
+  timeDisplay.addClass('fade-in'); // Lägg till klassen för animation
+
+  // Uppdatera values
   $('.values').html(
     `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
   );
+  const valuesDisplay = $('.values');
+  valuesDisplay.removeClass('fade-in'); // Ta bort klassen för att återställa animation
+  void valuesDisplay[0].offsetWidth; // Tvinga reflow
+  valuesDisplay.addClass('fade-in'); // Lägg till klassen för animation
 }
 
 function updateTimerValue(minutesToAdd) {
@@ -107,7 +119,9 @@ $(document).ready(function () {
   });
 
   timer.addEventListener('targetAchieved', function () {
-    $('#analogClock, #timerOverlay, #digitalClock, #buttonsOverlay').hide();
+    $(
+      '#analogClock, #timerOverlay, #digitalClock, #abortTimerButton, #startPauseButton'
+    ).hide();
     $('#alarmOverlay, #setTime').show();
 
     resetTimer();

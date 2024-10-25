@@ -7,7 +7,17 @@
 
 body {
   overflow-x: hidden;
+  height: 100%;
+}
+
+.wrapper {
   background-color: #d4d4d8;
+  display: flex;
+  flex-direction: column;
+  min-height: 650px;
+  height: 650px;
+  width: 350px;
+  margin: 0 auto;
 }
 
 main {
@@ -15,7 +25,10 @@ main {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
 }
 
 .clock-overlay,
@@ -28,15 +41,27 @@ main {
   display: none;
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px); /* Flyttar elementet neråt vid stängning */
+  }
+}
+
 /* Overlay */
 
 .loadingscreen-overlay {
   background-color: #a1a1aa;
-  height: 100%;
-  width: 100%;
+  height: 650px; /* Specifik höjd */
+  width: 350px;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +69,11 @@ main {
   gap: 20px;
   cursor: pointer;
   z-index: 1000;
+  overflow: hidden;
+}
+
+.loadingscreen-overlayonclick {
+  animation: fadeOut 0.5s ease-out;
 }
 
 .loadingscreen-header {
@@ -60,16 +90,22 @@ main {
 /* Header */
 
 .header {
+  z-index: 1;
+  position: relative;
   display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .logo {
   width: 200px;
-  margin: 10px;
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-right: 20px;
 }
 
 .menu-logo {
-  margin: 20px;
+  margin-top: 20px;
 }
 
 .menu-logo div {
@@ -80,6 +116,28 @@ main {
   border-radius: 5px;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Flyttar elementet lite neråt */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Återgår till ursprungligt läge */
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0; /* Börjar osynlig */
+    transform: scale(0.5); /* Börjar mindre */
+  }
+  100% {
+    opacity: 1; /* Slutar synlig */
+    transform: scale(1); /* Slutar i normal storlek */
+  }
+}
+
 /* Menu overlay */
 
 .menu-overlay {
@@ -88,7 +146,8 @@ main {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  min-height: 75vh;
+  min-height: 65vh;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .menu-overlay button {
@@ -109,20 +168,15 @@ main {
 
 .digital-overlay {
   font-size: 60px;
-  margin-top: 30%;
-  margin-bottom: 40px;
+  margin-bottom: 120px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.values {
+  animation: fadeInScale 0.5s ease-in-out;
 }
 
 /* Set time */
-.timer-overlay {
-  margin-top: 50%;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .increaseTimeButton,
 .decreaseTimeButton {
@@ -132,11 +186,14 @@ main {
 }
 
 .timer-overlay {
+  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40%;
+  margin-bottom: 120px;
   font-size: 60px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .time-displaycont {
@@ -153,22 +210,28 @@ main {
 
 .time-display {
   margin-top: 20px;
+  animation: fadeInScale 0.5s ease-in-out;
 }
 
 /* Buttons */
 
 .startPauseButton {
   width: 75px;
+  margin-bottom: 50px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #d4d4d8;
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  width: 350px;
+  height: 200px;
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 .abortTimerButton {
   border: 1px solid #a1a1aa;
@@ -178,14 +241,16 @@ main {
   width: 120px;
   background-color: #d4d4d8;
   margin-bottom: 50px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 /* analog clock */
 
 .clock-overlay {
   position: relative;
-  margin-top: 20%;
+  margin-top: 30%;
   margin-bottom: 40px;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .clockface {
@@ -236,7 +301,28 @@ main {
 
 /* alarm */
 
-.alarm-overlay {
+.alarmOverlay {
+  text-align: center;
+  margin-top: 40%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.alarmOverlay p {
   font-family: 'Agdasima', sans-serif;
-  font-size: 30px;
+  font-size: 60px;
+}
+
+.setTime {
+  border: 1px solid #a1a1aa;
+  color: #a1a1aa;
+  border-radius: 5px;
+  height: 30px;
+  width: 120px;
+  background-color: #d4d4d8;
+  margin-bottom: 50px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.fade-in {
+  animation: fadeInScale 0.5s ease-in-out; /* Använder animationen */
 }
