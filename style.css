@@ -7,6 +7,7 @@
 
 body {
   overflow-x: hidden;
+  background-color: #d4d4d8;
 }
 
 main {
@@ -30,7 +31,7 @@ main {
 /* Overlay */
 
 .loadingscreen-overlay {
-  background-color: grey;
+  background-color: #a1a1aa;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -46,13 +47,14 @@ main {
 }
 
 .loadingscreen-header {
-  stroke: #000;
+  stroke: #52525b;
   stroke-width: 1;
 }
 
 .loadingscreen-slogan {
   font-family: 'Agdasima', sans-serif;
   text-shadow: 0 0 2px #fff;
+  color: #71717a;
 }
 
 /* Header */
@@ -73,10 +75,9 @@ main {
 .menu-logo div {
   height: 5px;
   width: 40px;
-  background-color: #000;
+  background-color: #71717a;
   margin-top: 3px;
   border-radius: 5px;
-  box-shadow: 0 0 1px #000;
 }
 
 /* Menu overlay */
@@ -95,25 +96,31 @@ main {
   text-transform: uppercase;
   font-size: 40px;
   border: none;
-  background-color: #fff;
+  background-color: #d4d4d8;
+  color: #71717a;
   font-weight: bolder;
+}
+
+.menu-overlay button:hover {
+  font-size: 42px;
 }
 
 /* Digital watch */
 
 .digital-overlay {
   font-size: 60px;
-  margin-top: 20px;
+  margin-top: 30%;
+  margin-bottom: 40px;
 }
 
 /* Set time */
 .timer-overlay {
-  margin-top: 35%;
+  margin-top: 50%;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -124,49 +131,71 @@ main {
   align-self: center;
 }
 
-.time-displaycont {
+.timer-overlay {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.time-display {
+  justify-content: space-between;
+  margin-top: 40%;
   font-size: 60px;
 }
 
+.time-displaycont {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-displaycont p {
+  font-size: 15px;
+}
+
+.time-display {
+  margin-top: 20px;
+}
+
 /* Buttons */
+
 .startPauseButton {
-  width: 100px;
+  width: 75px;
+}
+
+.footer {
+  background-color: #d4d4d8;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+}
+.abortTimerButton {
+  border: 1px solid #a1a1aa;
+  color: #a1a1aa;
+  border-radius: 5px;
+  height: 30px;
+  width: 120px;
+  background-color: #d4d4d8;
+  margin-bottom: 50px;
 }
 
 /* analog clock */
 
 .clock-overlay {
   position: relative;
-  margin-top: 50%;
+  margin-top: 20%;
+  margin-bottom: 40px;
+}
+
+.clockface {
+  width: 200px;
 }
 
 .clock {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.clock span {
-  position: absolute;
-  transform: rotate(calc(30deg * var(--i)));
-  inset: 12px;
-  text-align: center;
-}
-
-.clock span b {
-  transform: rotate(calc(-30deg * var(--i)));
-  display: inline-block;
 }
 
 .clock::before {

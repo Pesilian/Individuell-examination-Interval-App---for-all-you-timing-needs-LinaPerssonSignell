@@ -1,8 +1,8 @@
 $(document).ready(function () {
   $(
-    '#analogClock, #digitalClock, #alarmOverlay, #menuOverlay, #setTime'
+    '#analogClock, #digitalClock, #alarmOverlay, #menuOverlay, #setTime, #abortTimerButton'
   ).hide();
-  $('#timerOverlay,  #buttonsOverlay').show();
+  $('#timerOverlay,  #startPauseButton').show();
   $('#loadingscreenOverlay').show();
 
   $('.loadingscreen-overlay').click(function () {
@@ -11,30 +11,32 @@ $(document).ready(function () {
 
   $('#menuLogo').click(function () {
     $(
-      '#analogClock, #digitalClock, #buttonsOverlay, #alarmOverlay, #timerOverlay'
+      '#analogClock, #digitalClock, #startPauseButton, #abortTimerButton, #alarmOverlay, #timerOverlay'
     ).hide();
     $('#menuOverlay').show();
   });
 
   $('#homeButton').click(function () {
-    $('#analogClock,  #alarmOverlay, #digitalClock, #menuOverlay').hide();
-    $('#timerOverlay, #buttonsOverlay').show();
+    $(
+      '#analogClock,  #alarmOverlay, #digitalClock, #menuOverlay, #abortTimerButton'
+    ).hide();
+    $('#timerOverlay, #startPauseButton').show();
   });
 
   $('#analogButton').click(function () {
     $('#digitalClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
-    $('#analogClock, #buttonsOverlay').show();
+    $('#analogClock, #startPauseButton, #abortTimerButton').show();
   });
 
   $('#digitalButton').click(function () {
     $('#analogClock, #timerOverlay, #alarmOverlay, #menuOverlay').hide();
-    $('#digitalClock, #buttonsOverlay').show();
+    $('#digitalClock, #startPauseButton, #abortTimerButton').show();
   });
 
   $('#setTime').click(function () {
     $(
-      '#alarmOverlay, #setTime, #analogClock,  #digitalOverlay, #menuOverlay'
+      '#alarmOverlay, #setTime, #analogClock,  #digitalOverlay, #menuOverlay, #abortTimerButton'
     ).hide();
-    $('#timerOverlay,  #buttonsOverlay').show();
+    $('#timerOverlay,  #startPauseButton').show();
   });
 });

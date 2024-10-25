@@ -19,6 +19,7 @@ function displayTimeInDisplay(totalSeconds) {
 function updateTimerValue(minutesToAdd) {
   countdownValue = Math.max(0, countdownValue + minutesToAdd * 60); // Omvandlar minuter till sekunder
   displayTimeInDisplay(countdownValue);
+  console.log(countdownValue);
 }
 
 function updateAnalogClock() {
@@ -41,6 +42,7 @@ function resetTimer() {
   analogClockIntervalId = null;
   $('#startPauseButton').attr('src', 'assets/play.svg');
   timerRunning = false;
+  console.log(countdownValue);
 }
 
 $(document).ready(function () {
@@ -55,6 +57,8 @@ $(document).ready(function () {
     if (!timerRunning) {
       $(this).attr('src', 'assets/pause.svg');
       timerRunning = true;
+
+      console.log(`Starting timer with countdownValue: ${countdownValue}`);
       timer.start({
         countdown: true,
         startValues: { seconds: countdownValue },
@@ -69,10 +73,10 @@ $(document).ready(function () {
     }
 
     if ($('#analogClock').is(':visible')) {
-      $('#analogClock, #buttonsOverlay').show();
+      $('#analogClock, #startPauseButton, #abortTimerButton').show();
       $('#digitalClock').hide();
     } else {
-      $('#digitalClock, #buttonsOverlay').show();
+      $('#digitalClock, #startPauseButton, #abortTimerButton').show();
       $('#analogClock').hide();
     }
 
@@ -80,43 +84,41 @@ $(document).ready(function () {
     $('#alarmOverlay, #timerOverlay').hide();
   });
 
-  // Eventhanterare för öka- och minska-knapparna
   $('#increaseTimeButton').click(function () {
-    updateTimerValue(1); // Ökar tiden med en sekund
+    updateTimerValue(1);
   });
 
   $('#decreaseTimeButton').click(function () {
-    updateTimerValue(-1); // Minskar tiden med en sekund
+    updateTimerValue(-1);
   });
 
-  // Händelser kopplade till timerobjektet
   timer.addEventListener('secondsUpdated', function () {
-    countdownValue = timer.getTotalTimeValues().seconds; // Uppdatera nedräkningsvärdet
-    displayTimeInDisplay(countdownValue); // Uppdatera visningen av tiden
+    countdownValue = timer.getTotalTimeValues().seconds;
+    displayTimeInDisplay(countdownValue);
   });
 
   timer.addEventListener('started', function () {
-    countdownValue = timer.getTotalTimeValues().seconds; // Uppdatera nedräkningsvärdet
-    displayTimeInDisplay(countdownValue); // Uppdatera visningen av tiden
+    countdownValue = timer.getTotalTimeValues().seconds;
+    displayTimeInDisplay(countdownValue);
   });
 
   timer.addEventListener('reset', function () {
-    resetTimer(); // Återställ timern
+    resetTimer();
   });
 
   timer.addEventListener('targetAchieved', function () {
-    // Döljer alla relevanta element och visar alarmOverlay samt setTime-knappen
     $('#analogClock, #timerOverlay, #digitalClock, #buttonsOverlay').hide();
     $('#alarmOverlay, #setTime').show();
 
     resetTimer();
   });
 
-  // Klickhändelse för abort timer-knappen
   $('#abortTimerButton').click(function () {
     resetTimer();
-    $('#analogClock, #digitalClock,  #alarmOverlay, #setTime').hide();
-    $('#buttonsOverlay, #timerOverlay').show();
+    $(
+      '#analogClock, #digitalClock,  #alarmOverlay, #setTime, #abortTimerButton'
+    ).hide();
+    $('#startPauseButton, #timerOverlay').show();
   });
 
   displayTimeInDisplay(countdownValue);
