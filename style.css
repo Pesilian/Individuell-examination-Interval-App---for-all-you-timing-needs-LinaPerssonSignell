@@ -63,6 +63,7 @@ main {
 
 .logo {
   width: 200px;
+  margin: 10px;
 }
 
 .menu-logo {
@@ -101,7 +102,7 @@ main {
 /* Digital watch */
 
 .digital-overlay {
-  font-size: 50px;
+  font-size: 60px;
   margin-top: 20px;
 }
 
@@ -112,9 +113,8 @@ main {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 150px;
 }
 
 .increaseTimeButton,
@@ -122,6 +122,18 @@ main {
   width: 50px;
   height: auto;
   align-self: center;
+}
+
+.time-displaycont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.time-display {
+  font-size: 60px;
 }
 
 /* Buttons */
@@ -183,6 +195,12 @@ main {
 #sec i {
   height: 75px;
   width: 2px;
+  background-color: #000;
+  box-shadow: none;
+}
+#min i {
+  height: 65px;
+  width: 4px;
   background-color: #000;
   box-shadow: none;
 }

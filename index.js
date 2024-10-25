@@ -33,7 +33,7 @@ $(document).ready(function () {
 
   $('#setTime').click(function () {
     $(
-      '#alarmOverlay, #setTime, #analogClock, #timerOverlay, #digitalOverlay, #menuOverlay'
+      '#alarmOverlay, #setTime, #analogClock,  #digitalOverlay, #menuOverlay'
     ).hide();
     $('#timerOverlay,  #buttonsOverlay').show();
   });

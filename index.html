@@ -91,6 +91,7 @@
       <div class="clock-overlay" id="analogClock">
         <div class="clock">
           <div class="hand" id="sec"><i></i></div>
+          <div class="hand" id="min"><i></i></div>
 
           <span style="--i: 1"><b>1</b></span>
           <span style="--i: 2"><b>2</b></span>
@@ -121,8 +122,10 @@
           id="decreaseTimeButton"
           alt="Decrease time"
         />
-        <span class="time-display" id="timeDisplay">00</span>
-
+        <div class="time-displaycont">
+          <span class="time-display" id="timeDisplay">00</span>
+          <p>minutes</p>
+        </div>
         <img
           src="assets/chevron-forward.svg"
           class="increaseTimeButton"
@@ -139,6 +142,8 @@
           id="startPauseButton"
           alt="Play/Pause"
         />
+
+        <button id="abortTimerButton">Abort Timer</button>
       </div>
 
       <!-- Alarm -->
