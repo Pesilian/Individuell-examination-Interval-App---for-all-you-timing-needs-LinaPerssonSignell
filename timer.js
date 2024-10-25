@@ -4,47 +4,41 @@ let intervalId;
 let analogClockIntervalId = null;
 let analogClockSeconds = 0;
 
-// Funktion för att visa tiden i formatet SS
 function displayTimeInDisplay(totalSeconds) {
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = totalSeconds % 60;
 
-  // Uppdatera timeDisplay
-  $('#timeDisplay').html(
-    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
-  );
+  $('#timeDisplay').html(`${String(minutes).padStart(2, '0')}`);
   const timeDisplay = $('#timeDisplay');
-  timeDisplay.removeClass('fade-in'); // Ta bort klassen för att återställa animation
-  void timeDisplay[0].offsetWidth; // Tvinga reflow
-  timeDisplay.addClass('fade-in'); // Lägg till klassen för animation
+  timeDisplay.removeClass('fade-in');
+  void timeDisplay[0].offsetWidth;
+  timeDisplay.addClass('fade-in');
 
-  // Uppdatera values
   $('.values').html(
     `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
   );
   const valuesDisplay = $('.values');
-  valuesDisplay.removeClass('fade-in'); // Ta bort klassen för att återställa animation
-  void valuesDisplay[0].offsetWidth; // Tvinga reflow
-  valuesDisplay.addClass('fade-in'); // Lägg till klassen för animation
+  valuesDisplay.removeClass('fade-in');
+  void valuesDisplay[0].offsetWidth;
+  valuesDisplay.addClass('fade-in');
 }
 
 function updateTimerValue(minutesToAdd) {
-  countdownValue = Math.max(0, countdownValue + minutesToAdd * 60); // Omvandlar minuter till sekunder
+  countdownValue = Math.max(0, countdownValue + minutesToAdd * 60);
   displayTimeInDisplay(countdownValue);
   console.log(countdownValue);
 }
 
 function updateAnalogClock() {
-  analogClockSeconds++; // Öka sekunder med 1 varje gång klockan tickar
-  const secondDegree = (analogClockSeconds % 60) * 6; // Omvandla till grader (360/60)
-  const minuteDegree = ((analogClockSeconds / 60) % 60) * 6; // Omvandla till grader för minuter
+  analogClockSeconds++;
+  const secondDegree = (analogClockSeconds % 60) * 6;
 
-  // Uppdatera visarnas rotation
+  const minuteDegree = ((analogClockSeconds / 60) % 60) * 6;
+
   $('#sec').css('transform', `rotate(${secondDegree}deg)`);
-  $('#min').css('transform', `rotate(${minuteDegree}deg)`); // Lägg till minutvisare
+  $('#min').css('transform', `rotate(${minuteDegree}deg)`);
 }
 
-// Funktion för att återställa timern
 function resetTimer() {
   timer.stop();
   analogClockSeconds = 0;
@@ -92,7 +86,6 @@ $(document).ready(function () {
       $('#analogClock').hide();
     }
 
-    // Dölj alarmOverlay och timerOverlay
     $('#alarmOverlay, #timerOverlay').hide();
   });
 

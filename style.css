@@ -48,7 +48,7 @@ main {
   }
   100% {
     opacity: 0;
-    transform: translateY(20px); /* Flyttar elementet neråt vid stängning */
+    transform: translateY(20px); 
   }
 }
 
@@ -56,7 +56,7 @@ main {
 
 .loadingscreen-overlay {
   background-color: #a1a1aa;
-  height: 650px; /* Specifik höjd */
+  height: 650px; 
   width: 350px;
   position: fixed;
   top: 50%;
@@ -119,22 +119,22 @@ main {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* Flyttar elementet lite neråt */
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* Återgår till ursprungligt läge */
+    transform: translateY(0);
   }
 }
 
 @keyframes fadeInScale {
   0% {
-    opacity: 0; /* Börjar osynlig */
-    transform: scale(0.5); /* Börjar mindre */
+    opacity: 0; 
+    transform: scale(0.5); 
   }
   100% {
-    opacity: 1; /* Slutar synlig */
-    transform: scale(1); /* Slutar i normal storlek */
+    opacity: 1; 
+    transform: scale(1); 
   }
 }
 
@@ -300,16 +300,38 @@ main {
 }
 
 /* alarm */
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 .alarmOverlay {
   text-align: center;
-  margin-top: 40%;
+  margin-bottom: 50px;
   animation: fadeIn 0.5s ease-in-out;
 }
 
 .alarmOverlay p {
   font-family: 'Agdasima', sans-serif;
   font-size: 60px;
+}
+
+.alarm-clock {
+  width: 50px;
+  animation: shake 0.5s infinite;
 }
 
 .setTime {
@@ -324,5 +346,5 @@ main {
 }
 
 .fade-in {
-  animation: fadeInScale 0.5s ease-in-out; /* Använder animationen */
+  animation: fadeInScale 0.5s ease-in-out; 
 }
